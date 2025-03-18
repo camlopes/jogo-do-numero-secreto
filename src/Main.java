@@ -7,25 +7,26 @@ public class Main {
         int numeroAdivinhado;
         int numeroSecreto;
         int tentativas = 1;
+        int minimo = 1;
+        int maximo = 100;
 
         Scanner scanner = new Scanner(System.in);
-
         Random random = new Random();
-        numeroSecreto = random.nextInt(1 , 101);
+        numeroSecreto = random.nextInt(minimo, maximo + 1);
 
         System.out.println("Bem vindo ao Jogo do Número Secreto!");
-        System.out.print("Adivinhe um Número de 1-100: ");
+        System.out.printf("Adivinhe um Número de %d-%d: ", minimo, maximo);
         numeroAdivinhado = scanner.nextInt();
 
         while(numeroAdivinhado != numeroSecreto){
             tentativas++;
             if(numeroAdivinhado > numeroSecreto){
                 System.out.println("O Número Secreto é menor! Tente novamente.");
-                System.out.print("Adivinhe um Número de 1-100: ");
+                System.out.printf("Adivinhe um Número de %d-%d: ", minimo, maximo);
                 numeroAdivinhado = scanner.nextInt();
             } else if(numeroAdivinhado < numeroSecreto){
                 System.out.println("O Número Secreto é maior! Tente novamente.");
-                System.out.print("Adivinhe um Número de 1-100: ");
+                System.out.printf("Adivinhe um Número de %d-%d: ", minimo, maximo);
                 numeroAdivinhado = scanner.nextInt();
             }
         }
